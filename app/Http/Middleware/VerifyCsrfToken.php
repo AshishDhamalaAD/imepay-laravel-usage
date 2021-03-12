@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        '/ime-pay/cancel',
+        '/ime-pay/response',
     ];
 }

@@ -1,18 +1,12 @@
 <?php
 
+use App\Http\Controllers\ImePayController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('ime-pay/form', [ImePayController::class, 'form'])->name('ime-pay.form');
+Route::post('ime-pay/cancel', [ImePayController::class, 'cancel'])->name('ime-pay.cancel');
+Route::post('ime-pay/response', [ImePayController::class, 'response'])->name('ime-pay.response');
