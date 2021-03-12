@@ -4,7 +4,10 @@
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "imepay",
+        "laravel imepay",
+        "imepay laravel"
     ],
     "license": "MIT",
     "require": {
