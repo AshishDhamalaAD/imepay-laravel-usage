@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Asdh\ImePay\ImePay;
+use Illuminate\Support\Str;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
@@ -14,8 +16,17 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $imePay = new ImePay();
+        $response = $imePay->verify([
+            "RefId" => "a460c09b-7783-47b6-b3a6-2d15cab71ed7",
+            "Msisdn" => "9840594104",
+            "TokenId" => "202103091150034061",
+            "TranAmount" => "20.0000",
+            "ResponseCode" => "0",
+            "TransactionId" => "202103091150349847",
+            "ResponseDescription" => "Success"
+        ]);
 
-        $response->assertStatus(200);
+        dd($response->isVerified(), $response->responseDescription(), $response->raw());
     }
 }
